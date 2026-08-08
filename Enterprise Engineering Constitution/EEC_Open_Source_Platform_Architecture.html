@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Enterprise Engineering Constitution — Open-Source Platform Architecture</title>
+<style>
+  :root{
+    --bg:#0f1115; --panel:#171a21; --panel2:#1d2028; --border:#2a2e38;
+    --text:#e7e9ee; --text2:#a8adb8; --text3:#767c8a;
+    --accent:#5aa9e6; --accent2:#7fd9c2; --gov:#a679e0; --ai:#e0a679;
+    --data:#79c4e0; --sec:#e07979; --com:#e0d179; --infra:#8fe07f;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;line-height:1.55;}
+  .wrap{max-width:1180px;margin:0 auto;padding:32px 24px 80px;}
+  h1{font-size:24px;font-weight:600;margin:0 0 6px;}
+  .sub{color:var(--text2);font-size:14px;margin:0 0 28px;}
+  .legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px;font-size:12px;color:var(--text2);}
+  .legend span{display:inline-flex;align-items:center;gap:6px;background:var(--panel2);border:1px solid var(--border);border-radius:20px;padding:4px 10px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+  .flow{display:flex;flex-direction:column;align-items:center;}
+  .arrow{color:var(--text3);font-size:13px;margin:2px 0 6px;}
+  .layer{width:100%;background:var(--panel);border:1px solid var(--border);border-left:4px solid var(--accent);
+    border-radius:10px;padding:20px 24px;margin-bottom:6px;}
+  .layer .tag{display:inline-block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;color:var(--text3);margin-bottom:4px;}
+  .layer h2{font-size:17px;margin:0 0 6px;font-weight:600;}
+  .layer p.desc{color:var(--text2);font-size:13.5px;margin:0 0 14px;max-width:920px;}
+  .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;}
+  @media (max-width:820px){.grid{grid-template-columns:1fr;}}
+  .colhead{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--text3);margin:0 0 8px;}
+  ul.feat{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;}
+  ul.feat li{font-size:13px;color:var(--text);padding-left:14px;position:relative;}
+  ul.feat li::before{content:"—";position:absolute;left:0;color:var(--text3);}
+  .chips{display:flex;flex-wrap:wrap;gap:6px;}
+  .chip{font-size:12px;background:var(--panel2);border:1px solid var(--border);border-radius:6px;padding:4px 9px;color:var(--text2);}
+  .chip b{color:var(--text);font-weight:500;}
+  .g-gov{border-left-color:var(--gov);} .g-gov .colhead:nth-of-type(1){color:var(--gov);}
+  .g-ai{border-left-color:var(--ai);}
+  .g-data{border-left-color:var(--data);}
+  .g-sec{border-left-color:var(--sec);}
+  .g-com{border-left-color:var(--com);}
+  .g-infra{border-left-color:var(--infra);}
+  .overlay{margin-top:34px;border:1px dashed var(--gov);border-radius:10px;padding:18px 24px;background:rgba(166,121,224,.05);}
+  .overlay h3{margin:0 0 8px;font-size:14.5px;color:var(--gov);font-weight:600;}
+  .overlay p{margin:0;font-size:13px;color:var(--text2);}
+  .footnote{margin-top:36px;font-size:12px;color:var(--text3);border-top:1px solid var(--border);padding-top:16px;}
+  .num{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:6px;
+    background:var(--panel2);border:1px solid var(--border);font-size:11px;color:var(--text2);margin-right:8px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Enterprise Engineering Constitution — open-source platform architecture</h1>
+  <p class="sub">Every operation from the Constitution mapped onto a fully open-source, no-paid-API technology stack. Layers flow top → bottom, matching the constitutional gate sequence.</p>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--gov)"></i>Governance / constitution</span>
+    <span><i class="dot" style="background:var(--accent)"></i>Intake, knowledge &amp; product</span>
+    <span><i class="dot" style="background:var(--ai)"></i>AI &amp; agentic engineering</span>
+    <span><i class="dot" style="background:var(--data)"></i>Data &amp; integration</span>
+    <span><i class="dot" style="background:var(--sec)"></i>Security &amp; identity</span>
+    <span><i class="dot" style="background:var(--com)"></i>Commercialization</span>
+    <span><i class="dot" style="background:var(--infra)"></i>CI/CD &amp; infrastructure</span>
+  </div>
+
+  <div class="flow">
+
+    <div class="layer g-gov">
+      <span class="tag">Layer 0 — top of hierarchy</span>
+      <h2><span class="num">0</span>Governance &amp; constitutional layer</h2>
+      <p class="desc">Immutable policy source that every other layer inherits from — Chairman's Vision, DSAWF Principles, EADC (master constitution), UPBIC (product blueprint standard), DAD #000, MPIP #001. Runs as policy-as-code so approvals are enforced by the platform, not by memory.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Master Constitutional Hierarchy (Vision → EADC → UPBIC → DAD → MPIP → BRD/SRS)</li>
+            <li>Conflict rule — higher authority always wins; no informal overrides</li>
+            <li>DAIOS / DUDOS boundary and dual-alignment rule</li>
+            <li>EADC compliance evidence register</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Open Policy Agent (OPA)</b> — policy-as-code engine</span>
+            <span class="chip"><b>Gitea / GitLab CE</b> — versioned constitution repo</span>
+            <span class="chip"><b>Keycloak</b> — governance-role RBAC</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ enforces</div>
+
+    <div class="layer" style="border-left-color:var(--accent)">
+      <span class="tag">Layer 1</span>
+      <h2><span class="num">1</span>Intake &amp; mandatory enterprise gate</h2>
+      <p class="desc">Single governed front door. No request proceeds to design or build without clearing every step of the gate and a duplicate/reuse search.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Mandatory Enterprise Gate (Vision → Reuse → Business → Architecture → Commercial → Technology → AI → Security → Revenue Validation → Chairman Decision)</li>
+            <li>Reuse Constitution — search Knowledge Vault, Prompt/API/DB/UI/ERD/Agent libraries before building</li>
+            <li>Classification outcome: Reuse / Integrate / Configure / Extend / Retire / Build New</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Camunda 8 Community / n8n</b> — BPMN gate workflow</span>
+            <span class="chip"><b>Typesense / OpenSearch</b> — duplicate &amp; reuse search</span>
+            <span class="chip"><b>PostgreSQL</b> — intake &amp; registry store</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ registers into</div>
+
+    <div class="layer" style="border-left-color:var(--accent)">
+      <span class="tag">Layer 2</span>
+      <h2><span class="num">2</span>Knowledge, prompt, agent &amp; decision registries</h2>
+      <p class="desc">Replaces passive Google Drive with a governed Enterprise Knowledge Graph. Every idea, prompt, agent, decision, and project keeps a permanent, queryable lifecycle record and a live Project Digital Twin.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Enterprise Knowledge Lifecycle (Idea → Decision → Blueprint → BRD/SRS/ERD → Code → Deployment → Lessons Learned → Knowledge Asset)</li>
+            <li>Prompt Constitution — ID, owner, version, cost, risk, retirement, reuse status</li>
+            <li>Agent Constitution — registration, permissions, budget, monitoring, retirement</li>
+            <li>Decision Constitution — evidence, alternatives, impact, rollback, approval</li>
+            <li>Enterprise Project Digital Twin (live progress, budget, risk, revenue)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Nextcloud</b> — Drive replacement (docs/files)</span>
+            <span class="chip"><b>Neo4j Community Edition</b> — knowledge graph / linkage</span>
+            <span class="chip"><b>MinIO</b> — object storage (S3-compatible)</span>
+            <span class="chip"><b>PostgreSQL</b> — Prompt/Agent/Decision registries</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ feeds</div>
+
+    <div class="layer g-ai">
+      <span class="tag">Layer 3</span>
+      <h2><span class="num">3</span>AI &amp; agentic engineering layer</h2>
+      <p class="desc">Hosts every AI governance registry on self-hosted, open-weight models only — zero paid inference APIs. All model calls stay inside the enterprise network.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>AI Registry, Model Registry, Agent Registry, Memory Registry</li>
+            <li>Knowledge / Tool / MCP / Vector / Embedding / RAG Registries</li>
+            <li>Evaluation, Hallucination, Bias, and Safety Registries</li>
+            <li>Agent Lifecycle: registration → permission → monitoring → cost → escalation → retirement</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack — no paid APIs</p>
+          <div class="chips">
+            <span class="chip"><b>Ollama</b> — serves Llama 3, Mistral, Qwen2 locally</span>
+            <span class="chip"><b>vLLM</b> — high-throughput self-hosted inference</span>
+            <span class="chip"><b>LangChain + LlamaIndex</b> — RAG &amp; orchestration</span>
+            <span class="chip"><b>Qdrant / Milvus</b> — vector database</span>
+            <span class="chip"><b>CrewAI / AutoGen / LangGraph</b> — agent framework</span>
+            <span class="chip"><b>MLflow</b> — model registry &amp; evaluation tracking</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ builds</div>
+
+    <div class="layer" style="border-left-color:var(--accent)">
+      <span class="tag">Layer 4</span>
+      <h2><span class="num">4</span>Product &amp; enterprise factory layer</h2>
+      <p class="desc">Where DAIOS (software/AI/SaaS), DUDOS (institutional operations), and every vertical product (Student360, Skill.jobs, AI Professor, etc.) are generated as reusable, packaged modules.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Enterprise Product Factory — reusable module, white label, API product, SDK, plugin</li>
+            <li>DAIOS scope: software, AI, agents, prompts, APIs, marketplaces, automation</li>
+            <li>DUDOS scope: institutional admin, finance, HR, registrar, compliance</li>
+            <li>Dual-alignment rule enforced at build time (DAIOS + DUDOS sign-off)</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>React + Next.js</b> — frontend</span>
+            <span class="chip"><b>Python FastAPI / Node.js NestJS</b> — backend services</span>
+            <span class="chip"><b>Docker</b> — module packaging</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ connects via</div>
+
+    <div class="layer g-data">
+      <span class="tag">Layer 5</span>
+      <h2><span class="num">5</span>Data &amp; integration backbone</h2>
+      <p class="desc">Standardised, event-driven integration between every module and registry, following the constitution's preferred-method priority order.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Integration priority: API → Event Bus → Webhook → Plugin → SSO → Shared DB (exception only)</li>
+            <li>ERD / data model standards — tenant boundary, audit fields, retention</li>
+            <li>API specification package — auth, pagination, idempotency, versioning</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Apache Kafka / NATS</b> — event bus</span>
+            <span class="chip"><b>Kong Gateway (OSS)</b> — API gateway</span>
+            <span class="chip"><b>PostgreSQL + TimescaleDB</b> — transactional &amp; time-series data</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ observed by</div>
+
+    <div class="layer" style="border-left-color:var(--accent)">
+      <span class="tag">Layer 6</span>
+      <h2><span class="num">6</span>Dashboard &amp; accountability engine</h2>
+      <p class="desc">Every dashboard and status report is generated automatically from the layers below — nobody compiles them manually.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Enterprise Dashboard Constitution — Executive, Chairman, Revenue, Risk, AI, Knowledge, Product, Customer dashboards</li>
+            <li>Enterprise Accountability Engine — owner, deadline, completion %, quality score, escalation, auto-verified</li>
+            <li>Enterprise Autonomous Governance — AI continuously checks what's delayed, blocked, or missing</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Grafana + Prometheus</b> — metrics &amp; live dashboards</span>
+            <span class="chip"><b>Apache Superset</b> — executive / BI dashboards</span>
+            <span class="chip"><b>Grafana Loki</b> — log aggregation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ monetized through</div>
+
+    <div class="layer g-com">
+      <span class="tag">Layer 7</span>
+      <h2><span class="num">7</span>Commercialization &amp; marketplace layer</h2>
+      <p class="desc">Pricing, ROI, marketplace listing, and licensing are gated requirements before development — not activities bolted on after launch.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Enterprise Commercialization Constitution — market/competitor validation, pricing, CAC/LTV, licensing, franchise</li>
+            <li>Marketplace listing, white-label packaging, partner &amp; channel strategy</li>
+            <li>Revenue Dashboard feeding Layer 6</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Medusa.js / Saleor</b> — open-source commerce &amp; marketplace engine</span>
+            <span class="chip"><b>Metabase</b> — revenue &amp; pricing reporting</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ protected by</div>
+
+    <div class="layer g-sec">
+      <span class="tag">Layer 8 — cross-cutting</span>
+      <h2><span class="num">8</span>Security, identity &amp; compliance layer</h2>
+      <p class="desc">Runs across every layer above — no deployment is permitted unless it passes these checks (EADC Chapter 6.2, Deployment Prohibition).</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Security &amp; AI validation gates inside the Mandatory Enterprise Gate</li>
+            <li>Deployment Prohibition — no release without EADC/DAIOS/DUDOS + security + AI evidence</li>
+            <li>Evidence register: constitutional mapping, risk classification, human oversight, ownership</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>Keycloak</b> — IAM / SSO / RBAC</span>
+            <span class="chip"><b>HashiCorp Vault (OSS)</b> — secrets management</span>
+            <span class="chip"><b>OpenSearch</b> — audit logging / SIEM</span>
+            <span class="chip"><b>Trivy / OWASP ZAP</b> — vulnerability &amp; security scanning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="arrow">▼ shipped through</div>
+
+    <div class="layer g-infra">
+      <span class="tag">Layer 9 — foundation</span>
+      <h2><span class="num">9</span>CI/CD &amp; infrastructure layer</h2>
+      <p class="desc">Everything above is built, tested, and released through one controlled pipeline with rollback built in — the physical foundation the rest of the stack runs on.</p>
+      <div class="grid">
+        <div>
+          <p class="colhead">Constitutional operations covered</p>
+          <ul class="feat">
+            <li>Deployment sequencing — prove one governed flow end-to-end before scaling to more modules</li>
+            <li>Environment matrix, IaC, rollback strategy, release freeze rules</li>
+            <li>SBOM generation and artifact attestation for supply-chain integrity</li>
+          </ul>
+        </div>
+        <div>
+          <p class="colhead">Open-source stack</p>
+          <div class="chips">
+            <span class="chip"><b>GitLab CE</b> — source control + CI/CD pipelines</span>
+            <span class="chip"><b>ArgoCD</b> — GitOps deployment</span>
+            <span class="chip"><b>Kubernetes + Docker</b> — container orchestration</span>
+            <span class="chip"><b>Terraform (OSS)</b> — infrastructure as code</span>
+            <span class="chip"><b>Syft / CycloneDX</b> — SBOM generation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="overlay">
+    <h3>Cross-cutting overlay — autonomous governance agent mesh</h3>
+    <p>A supervisor agent (built on CrewAI/AutoGen, served via Ollama) subscribes to events from every layer above through Kafka, continuously asking: what's delayed, blocked, missing, or below KPI threshold — surfacing findings to Layer 6 dashboards without waiting for a human status report. This is the "Enterprise Autonomous Governance" operation running as infrastructure rather than a manual habit.</p>
+  </div>
+
+  <div class="footnote">
+    Every component listed is free, open-source, and self-hostable — no paid SaaS subscriptions or metered API keys are required anywhere in this architecture. Source: Enterprise Engineering Constitution.docx and the DAIOS/DUDOS/Vol 1 Constitution governance documents in this project.
+  </div>
+
+</div>
+</body>
+</html>
